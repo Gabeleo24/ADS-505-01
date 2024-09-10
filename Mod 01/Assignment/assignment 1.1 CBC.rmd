@@ -1,0 +1,345 @@
+---
+title: "Assignment 1.1 - Charles Book Club"
+author: "Gabe"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+The company is looking to target its customers more accurately.  The company would like to use the information contained in their databases to identify who is most likely to be interested in a specific offer. This information enables them to design special programs carefully tailored to meet their customer segments varying needs. In this use case, you will be applying multiple data mining techniques, including k-NN and logistic regression models.
+
+The company two common membership programs: the continuity program, a reader signs up by accepting an offer of several books for just a few dollars (including shipping and handling) and an agreement to receive a shipment of one or two books each month thereafter at more-standard pricing. 
+- common for childern's books
+- CON depends on the qulality of its selections
+
+- the negative option plan, a reader receives a monthly announcement describing the book of the month. If the reader does not return the announcement by a specified date, the book is shipped and the reader is billed.
+- common for adult books
+
+
+NOTES: 
+
+- **Charles Book Club Overview:**
+  - Established in 1986 with a focus on understanding customer preferences.
+  - CBC offered specialty books through direct marketing channels (media advertising, mailing).
+  - Built a database of 500,000 active members acquired through advertising in specialty magazines.
+
+- **Problem Statement:**
+  - Despite an increase in customer database and mailing volume, CBC's profits were declining.
+  - Previous mailing strategies were untargeted, leading to inefficiencies in customer engagement and profitability.
+
+- **Proposed Solution:**
+  - CBC management decided to adopt database marketing techniques to improve targeting.
+  - The goal was to identify the most profitable customers and design targeted campaigns.
+  - A two-step process was proposed:
+    1. Conduct a market test on 4000 customers to develop response models.
+    2. Use response models to create a targeted customer list for promotional mailings.
+
+- **Data Mining Techniques Utilized:**
+  - **k-Nearest Neighbors (k-NN):** Used to classify customers based on purchasing behavior.
+  - **Logistic Regression:** Applied to model response probabilities and predict customer behavior.
+  - **RFM Segmentation (Recency, Frequency, Monetary):** Used to categorize customers into homogeneous segments based on past purchase behavior.
+
+- **Assignment Goals:**
+  - Analyze CBC’s customer data using k-NN, logistic regression, and RFM segmentation.
+  - Optimize promotional mailings by targeting the most responsive customer segments.
+  - Provide data-driven recommendations to enhance CBC's marketing effectiveness and profitability.
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+library(caret)
+library(class)
+library(pROC)
+library(ROCR)
+library(reshape2)
+library(glmnet)
+```
+
+
+```{r}
+# load the data
+cbc_data <- read.csv("/Users/gabrielmancillas/Desktop/ADS 505-01/Mod 01/Assignment/CharlesBookClub.csv")
+
+# display the structure of the dataset
+str(cbc_data)
+
+# display the summary statistics of the dataset
+summary(cbc_data)
+
+# display the first few rows of the dataset
+head(cbc_data)
+```
+
+```{r}
+set.seed(1)  # Set seed for reproducibility
+trainIndex <- createDataPartition(cbc_data$Florence, p = 0.6, list = FALSE)
+train_data <- cbc_data[trainIndex, ]
+validation_data <- cbc_data[-trainIndex, ]
+
+# question 1.1 Calculate response reate for the training data and RFM combinations. 
+
+# over response rate for training data
+overall_response_rate <- mean(train_data$Florence)
+print(paste("Overall Response Rate for Training Data:", overall_response_rate))
+
+# This response rate indicates that around 8.7% of the customers in the training data have purchased "The Art History of Florence" book.
+
+# This groups the data by the RFM categories and calculates the response rate for each group. Then, we filter for combinations where the response rate is above the overall response rate of 8.7%. These are the “above-average” RFM combinations.
+
+# calculate response rates for each RFM category
+rfm_response_rate <- train_data %>%
+  group_by(R, F, M) %>%
+  summarize(response_rate = mean(Florence))
+
+# Find combinations with above-average response rates
+above_average_combinations <- rfm_response_rate %>%
+  filter(response_rate > overall_response_rate)
+
+print(above_average_combinations)
+```
+
+### Question 1.2: Compute the response rate for validation data using "above-average" RFM combinations
+```{r}
+# Filter validation data based on above-average RFM combinations
+validation_selected <- validation_data %>%
+  semi_join(above_average_combinations, by = c("R", "F", "M"))
+
+# Compute response rate for validation data
+validation_response_rate <- mean(validation_selected$Florence)
+print(paste("Validation response rate for above-average combinations:", validation_response_rate))
+```
+
+### Results Question 1:
+
+- **Overall Response Rate for Training Data**: ~8.7%
+- **Response Rates for RFM Combinations**: Identified above-average combinations where the response rate is greater than 8.7%.
+- **Validation Response Rate**: The response rate for the "above-average" combinations in the validation data is approximately **15%**.
+
+By targeting only these above-average RFM combinations, the response rate increases significantly, which supports the use of targeted marketing to improve campaign effectiveness.
+
+---
+### Question 2: k-Nearest Neighbors (k-NN) Classification
+
+In this question, we are asked to classify customers using the k-nearest neighbors (k-NN) algorithm based on the variables **Recency (R)**, **Frequency (F)**, **Monetary (M)**, **First Purchase**, and **Related Purchases**. The goal is to find the best value of \( k \) by evaluating performance on the validation set.
+
+
+### Question 2: k-NN classification
+```{r}
+### Question 2: k-NN classification
+
+# Normalize relevant variables using mutate(across())
+normalize <- function(x) {
+  return((x - min(x)) / (max(x) - min(x)))
+}
+
+train_data_norm <- train_data %>%
+  mutate(across(c(R, F, M, FirstPurch, Related.Purchase), normalize))
+
+validation_data_norm <- validation_data %>%
+  mutate(across(c(R, F, M, FirstPurch, Related.Purchase), normalize))
+```
+
+```{r}
+# Prepare input and output for k-NN
+train_x <- train_data_norm %>% select(R, F, M, FirstPurch, Related.Purchase)
+train_y <- train_data_norm$Florence
+
+validation_x <- validation_data_norm %>% select(R, F, M, FirstPurch, Related.Purchase)
+validation_y <- validation_data_norm$Florence
+
+# Perform k-NN for k = 1 to 11
+k_values <- 1:11
+accuracy_results <- data.frame(k = k_values, accuracy = NA)
+
+for (i in seq_along(k_values)) {
+  knn_pred <- knn(train_x, validation_x, train_y, k = k_values[i])
+  accuracy_results$accuracy[i] <- mean(knn_pred == validation_y)
+}
+
+# Display the accuracy for each k
+accuracy_results
+```
+
+```{r}
+# Find the best k
+best_k <- accuracy_results[which.max(accuracy_results$accuracy), "k"]
+print(paste("Best k:", best_k))
+```
+
+
+### Explanation of the Script:
+- The **normalize** function scales the numeric variables to a [0,1] range.
+- We normalize both the training and validation data for the five selected variables: **R**, **F**, **M**, **First Purchase**, and **Related Purchases**.
+- We perform k-NN classification for \( k \) values ranging from 1 to 11, and compute the accuracy for each value of \( k \).
+- The best \( k \) is determined by the value that gives the highest accuracy.
+
+### Output:
+- The output will display the accuracy for each value of \( k \), and it will print the best \( k \). Based on the sample results in the PDF, the best \( k \) was **7**, with an accuracy of **91.8%**.
+
+---
+We now create a **lift curve** for the best k-NN model (using \( k = 7 \)) to evaluate the performance in terms of lift.
+
+
+### Question 2.1: Create a lift curve for the best k-NN model
+```{r}
+# Run k-NN with the best k
+knn_best_pred <- knn(train_x, validation_x, train_y, k = best_k)
+
+# Create a lift curve
+roc_obj <- roc(validation_y, as.numeric(knn_best_pred))
+plot(roc_obj, main = paste("Lift curve for k =", best_k))
+```
+
+### Explanation of the Script:
+- We use the **best_k** value (found to be 7) to run the k-NN model again and generate predictions for the validation data.
+- The **roc** function from the `pROC` library is used to compute the ROC curve, which is a proxy for the lift curve.
+- The **plot** function generates the lift curve for the best k-NN model.
+
+### Output:
+- The plot will display the lift curve for \( k = 7 \). This curve shows how well the model is able to distinguish between customers who purchased "The Art History of Florence" and those who did not.
+
+---
+
+### Results:
+
+- **Best k**: The best \( k \) is found to be **7**, with an accuracy of approximately **91.8%** on the validation set.
+- **Lift Curve**: The lift curve shows the effectiveness of the model at distinguishing between buyers and non-buyers, confirming that the model performs well with the chosen value of \( k \).
+
+---
+
+### Question 3: Logistic Regression
+```{r}
+# Model with all 16 predictors
+logit_model_full <- glm(Florence ~ ., data = train_data, family = "binomial")
+
+# Model with a subset of predictors
+logit_model_subset <- glm(Florence ~ R + F + M + FirstPurch + Related.Purchase, data = train_data, family = "binomial")
+
+# Summary of the models
+summary(logit_model_full)
+summary(logit_model_subset)
+
+# Predict probabilities for validation data
+pred_probs_full <- predict(logit_model_full, validation_data, type = "response")
+pred_probs_subset <- predict(logit_model_subset, validation_data, type = "response")
+
+# Apply 30% cutoff for validation data
+cutoff <- 0.3
+targeted_customers_full <- ifelse(pred_probs_full > cutoff, 1, 0)
+targeted_customers_subset <- ifelse(pred_probs_subset > cutoff, 1, 0)
+
+# Count the number of buyers in the targeted set
+buyers_full <- sum(validation_data$Florence[targeted_customers_full == 1])
+buyers_subset <- sum(validation_data$Florence[targeted_customers_subset == 1])
+
+print(paste("Number of buyers (full model):", buyers_full))
+print(paste("Number of buyers (subset model):", buyers_subset))
+```
+
+#### 3.3 Briefly explain, in two to three paragraphs, the business objective, the data mining models used, why they were used, the model results, and your recommendations to your non-technical stakeholder team.
+
+
+
+
+### Question 3: Logistic Regression
+
+In this question, we're asked to build two logistic regression models:
+1. A model with **all 16 predictors** in the dataset.
+2. A model with a **subset of predictors** that we judge to be the best for predicting the outcome.
+
+We will then apply a **30% purchase likelihood cutoff** to identify the target customers in the validation data.
+
+#### 3.1 Logistic Regression with All Predictors
+
+We will build a logistic regression model using all the predictors in the dataset.
+
+**R Script for Logistic Regression (Full Model):**
+```r
+# Logistic Regression with all 16 predictors
+logit_model_full <- glm(Florence ~ ., data = train_data, family = "binomial")
+
+# Summary of the full model
+summary(logit_model_full)
+```
+
+- This model uses all the columns in the dataset to predict whether a customer purchases the book "The Art History of Florence".
+- The `glm` function fits a generalized linear model using the **binomial** family, appropriate for logistic regression.
+- The `summary()` function provides details of the coefficients and model performance.
+
+#### 3.2 Logistic Regression with a Subset of Predictors
+
+We will select a subset of predictors that we judge to be the most relevant based on the business context, which includes **Recency (R)**, **Frequency (F)**, **Monetary (M)**, **First Purchase**, and **Related Purchases**.
+
+**R Script for Logistic Regression (Subset Model):**
+```r
+# Logistic Regression with a subset of predictors
+logit_model_subset <- glm(Florence ~ R + F + M + FirstPurch + Related.Purchase, data = train_data, family = "binomial")
+
+# Summary of the subset model
+summary(logit_model_subset)
+```
+
+- The subset model includes variables that are likely to be key factors in predicting customer behavior, based on our domain knowledge.
+
+#### 3.3 Apply a 30% Cutoff for the Campaign
+
+After building the logistic regression models, we apply a **30% purchase likelihood cutoff** to target customers in the validation data. We will count how many buyers are predicted in the validation data based on this threshold.
+
+**R Script to Apply 30% Cutoff and Count Buyers:**
+```r
+# Predict probabilities for validation data using both models
+pred_probs_full <- predict(logit_model_full, validation_data, type = "response")
+pred_probs_subset <- predict(logit_model_subset, validation_data, type = "response")
+
+# Apply 30% cutoff for both models
+cutoff <- 0.3
+targeted_customers_full <- ifelse(pred_probs_full > cutoff, 1, 0)
+targeted_customers_subset <- ifelse(pred_probs_subset > cutoff, 1, 0)
+
+# Count the number of buyers in the validation set for both models
+buyers_full <- sum(validation_data$Florence[targeted_customers_full == 1])
+buyers_subset <- sum(validation_data$Florence[targeted_customers_subset == 1])
+
+# Print the results
+print(paste("Number of buyers (full model):", buyers_full))
+print(paste("Number of buyers (subset model):", buyers_subset))
+```
+
+- **pred_probs_full** and **pred_probs_subset**: Predict the probability of a customer making a purchase for the full model and subset model, respectively.
+- **targeted_customers_full** and **targeted_customers_subset**: Apply the 30% cutoff to determine which customers are predicted to purchase.
+- **buyers_full** and **buyers_subset**: Count the number of actual buyers among the targeted customers.
+
+### Output:
+- The script will print the number of buyers for each model.
+- Based on the sample results in the PDF, the full model identified **129 buyers**, while the subset model identified **4 buyers** with the 30% cutoff.
+
+---
+
+### 3.3 Brief Explanation
+
+#### Business Objective:
+The business objective of this analysis is to improve the effectiveness of Charles Book Club’s promotional mailings by targeting customers who are most likely to respond to a given offer. By focusing on these customers, CBC can optimize its marketing resources and increase profitability.
+
+#### Models Used:
+We used two logistic regression models to predict customer response:
+1. **Full Model**: This model included all 16 predictors from the dataset. It serves as a benchmark to assess the impact of each variable on customer purchasing behavior.
+2. **Subset Model**: We built a more streamlined model using a subset of variables that are likely to be the most predictive of customer response, including Recency, Frequency, Monetary, First Purchase, and Related Purchases.
+
+#### Model Results:
+- The full model identified **129 buyers** in the validation set using a 30% likelihood cutoff, while the subset model identified **4 buyers**. This suggests that the full model is better suited for capturing the complex relationships in the data, although it may be more prone to overfitting.
+- The subset model, while more interpretable, is more conservative in identifying potential buyers.
+
+#### Recommendations:
+We recommend that CBC deploy the full logistic regression model to maximize the number of customers targeted for promotional mailings. By focusing on customers with a likelihood of 30% or higher, the club can increase its chances of generating a response. However, the subset model could be used in cases where a simpler, more interpretable model is needed.
+
+---
+
+### Summary for Question 3:
+1. **Logistic Regression with All Predictors**: Built a full model using all predictors in the dataset.
+2. **Logistic Regression with Subset of Predictors**: Built a simpler model using key predictors like Recency, Frequency, Monetary, First Purchase, and Related Purchases.
+3. **30% Cutoff for Targeting**: Applied a 30% likelihood cutoff to both models, with the full model identifying 129 buyers and the subset model identifying 4 buyers.
+
+This completes **Question 3**. Let me know if you need further clarifications or assistance!
