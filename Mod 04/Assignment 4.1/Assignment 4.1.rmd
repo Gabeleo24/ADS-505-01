@@ -1,0 +1,53 @@
+---
+title: "Assignment 4.1"
+output: github_document
+Author: "Gabriel Elohi Mancillas Gallardo"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(DataExplorer)
+library(corrplot)
+library(caret)
+library(car)
+library(MASS)
+library(e1071)
+# Install necessary packages if they are not already installed
+packages <- c("tidyverse", "DataExplorer", "corrplot", "caret", "car", "MASS", "e1071")
+install.packages(setdiff(packages, rownames(installed.packages())))
+```
+```{r}
+fund = read.csv('/Users/gabrielmancillas/Desktop/ADS 505-01/Mod 04/Assignment 4.1/Fundraising.csv')
+ff = read.csv('/Users/gabrielmancillas/Desktop/ADS 505-01/Mod 04/Assignment 4.1/FutureFundraising.csv')
+
+any(is.na(fund)); any(is.na(ff))
+
+str(fund)
+str(ff)
+
+fund$income <- as.factor(fund$INCOME)
+fund$wealth <- as.factor(fund$WEALTH)
+str(fund)
+
+ff$income <- as.factor(ff$INCOME)
+ff$wealth <- as.factor(ff$WEALTH)
+str(ff)
+```
+
+```{r} 
+# Ensure the zipconvert columns are factors with levels "No" and "Yes"
+fund$zipconvert_2 <- factor(fund$zipconvert_2, levels = c("No", "Yes"))
+fund$zipconvert_3 <- factor(fund$zipconvert_3, levels = c("No", "Yes"))
+fund$zipconvert_4 <- factor(fund$zipconvert_4, levels = c("No", "Yes"))
+fund$zipconvert_5 <- factor(fund$zipconvert_5, levels = c("No", "Yes"))
+
+# Check the structure to confirm the changes
+str(fund)
+
+```
+```{r}
+summary(fund)
+summary(ff)
+```
