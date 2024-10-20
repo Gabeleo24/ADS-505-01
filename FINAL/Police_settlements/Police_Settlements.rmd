@@ -31,3 +31,12 @@ data <- read_csv(df)
 head(data)
 
 ```
+
+```{r}
+# show me the list for the first column 
+# Show the unique values and their counts for the first column
+table(data$summary_allegations)
+```
+
+```{r}
+# we will edit summary_allegations to 
