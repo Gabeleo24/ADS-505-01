@@ -1,0 +1,72 @@
+---
+title: "Setting up all data"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# I want all data to look like this format ["plaintiff_name","claim_number","summary_allegations","incident_date","filed_date","plaintiff_attorney","closed_date","amount_awarded","location","calendar_year","incident_year","filed_year","city","state","other_expenses","collection","total_incurred","court","docket_number","matter_name","case_outcome"]
+# if the data does not have a column, I want it to be NA
+# if the data is not correctly formatted, I want it to change to the correct format such as [] 
+
+# I want to create a function that will take in a data frame and return a data frame that is formatted correctly
+
+# Define the format_data function
+format_data <- function(df) {
+    required_columns <- c("plaintiff_name", "claim_number", "summary_allegations", "incident_date", "filed_date", 
+                          "plaintiff_attorney", "closed_date", "amount_awarded", "location", "calendar_year", 
+                          "incident_year", "filed_year", "city", "state", "other_expenses", "collection", 
+                          "total_incurred", "court", "docket_number", "matter_name", "case_outcome")
+    
+    # Add missing columns with NA values
+    for (col in required_columns) {
+        if (!col %in% colnames(df)) {
+            df[[col]] <- NA
+        }
+    }
+    
+    # Reorder columns to match the required format
+    df <- df[, required_columns]
+    
+    return(df)
+}
+
+# Load and format all CSV files in the specified directory
+library(readr)
+library(dplyr)
+
+directory <- "/Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations"
+file_list <- list.files(directory, pattern = "*.csv", full.names = TRUE)
+
+all_data <- lapply(file_list, function(file) {
+    df <- read_csv(file)
+    formatted_df <- format_data(df)
+    return(formatted_df)
+})
+
+# Combine all data frames into one
+combined_data <- bind_rows(all_data)
+
+# Save the combined data to a new CSV file
+output_csv_path <- file.path(directory, "combined_data.csv")
+write_csv(combined_data, output_csv_path)
+
+# Print the path of the saved CSV file to verify
+print(paste("Combined data saved to:", output_csv_path))
+```
+
+```{r}
+# Only keep the columns that are needed for the analysis
+selected_columns <- c("summary_allegations", "incident_date", "filed_date", "closed_date", "amount_awarded", "location", "calendar_year", "incident_year", "state")
+df_selected <- combined_data %>% select(all_of(selected_columns))
+
+# Save the selected data to a new CSV file
+output_csv_path <- file.path(directory, "selected_data.csv")
+write_csv(df_selected, output_csv_path)
+
+# Print the path of the saved CSV file to verify
+print(paste("Selected data saved to:", output_csv_path))
+```

@@ -7,65 +7,27 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## GitHub Documents
 ```{r}
-remotes::install_github(c("ropensci/tabulizerjars", "ropensci/tabulizer"), INSTALL_opts = "--no-multiarch")
-```
-
-```{r}
-# This file should be sourced at the beginning of individual city files to
-# set up the right data and output paths
-# the input path should point to a local copy of the Google Drive folder
-# run XX Makefile to sync your local copy with the current most updated copy of the google drive folder
-rm(list=ls())
-
-list.of.packages <- c("ggplot2", "lubridate","readxl","plyr","dplyr","tidyverse","tidylog","stringr", "this.path")
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
-
-#library(here)
-#library(rmarkdown)
-library(ggplot2)
-library(lubridate)
-library(readxl)
-library(plyr)
-library(dplyr)
-library(tidyverse)
-library(tidylog)
-library(stringr)
-library(this.path)
-
-# disable scientific notation
+# Disable scientific notation
 options(scipen = 999)
 
 # Avoid conflicts
-#here = here::here
-summarize = dplyr::summarize
-rename = dplyr::rename
-count = dplyr::count
+summarize <- dplyr::summarize
+rename <- dplyr::rename
+count <- dplyr::count
 
-# functions to set path in files that call setup.R
-get_inpath <- function(base_path){
-  original_path <- file.path(base_path, 'original/')
-  intermediate_path <- file.path(base_path, 'intermediate/')
-  raw_data_path <- if(dir.exists(intermediate_path)) intermediate_path else original_path
-  return(raw_data_path)
-}
-
-get_outpath <- function(base_path) {
-  out_data_path <- file.path(base_path, 'final/')
-  return(out_data_path)
-}
+# Define the base path to your CSV files
+df <- "/Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/selected_data.csv"
 ```
 
 ```{r}
-# Set up the path to the data
-base_path <- "C:/Users/Owner/Documents/Police_Settlements/"
-raw_data_path <- get_inpath(base_path)
-out_data_path <- get_outpath(base_path)
-```
+#load the library
+library(readr)
 
-```{r}
-# Load the data
-data <- readxl::read_xlsx(file.path(raw_data_path, "Police_Settlements.xlsx"))
+# Load the data from the CSV file
+data <- read_csv(df)
+
+# Display the first few rows of the data to verify and column names
+head(data)
+
 ```

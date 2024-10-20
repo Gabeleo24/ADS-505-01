@@ -602,164 +602,44 @@ padding-top: 0px;
 <body>
 
 <h1 id="untitled">Untitled</h1>
-<h2 id="github-documents">GitHub Documents</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="fu">c</span>(<span class="st">&quot;ropensci/tabulizerjars&quot;</span>, <span class="st">&quot;ropensci/tabulizer&quot;</span>), <span class="at">INSTALL_opts =</span> <span class="st">&quot;--no-multiarch&quot;</span>)</span></code></pre></div>
-<pre><code>## Downloading GitHub repo ropensci/tabulizerjars@HEAD
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Disable scientific notation</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Avoid conflicts</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>summarize <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>summarize</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>rename <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>rename</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>count <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>count</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co"># Define the base path to your CSV files</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="st">&quot;/Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/selected_data.csv&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co">#load the library</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># Load the data from the CSV file</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(df)</span></code></pre></div>
+<pre><code>## Rows: 117120 Columns: 9
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (3): summary_allegations, location, state
+## dbl  (3): amount_awarded, calendar_year, incident_year
+## dttm (1): closed_date
+## date (2): incident_date, filed_date
 ## 
-## ── R CMD build ─────────────────────────────────────────────────────────────────
-## * checking for file ‘/private/var/folders/jw/4t4swxld5c5f_5xhv0_bzbr00000gn/T/RtmpAoDBoh/remotes86d14fec01b4/ropensci-tabulizerjars-d1924e0/DESCRIPTION’ ... OK
-## * preparing ‘tabulizerjars’:
-## * checking DESCRIPTION meta-information ... OK
-## * checking for LF line-endings in source and make files and shell scripts
-## * checking for empty or unneeded directories
-## * building ‘tabulizerjars_1.0.1.tar.gz’
-
-## Warning in i.p(...): installation of package
-## &#39;/var/folders/jw/4t4swxld5c5f_5xhv0_bzbr00000gn/T//RtmpAoDBoh/file86d1f63f96a/tabulizerjars_1.0.1.tar.gz&#39;
-## had non-zero exit status
-
-## Downloading GitHub repo ropensci/tabulizer@HEAD
-
-## 
-## ── R CMD build ─────────────────────────────────────────────────────────────────
-## * checking for file ‘/private/var/folders/jw/4t4swxld5c5f_5xhv0_bzbr00000gn/T/RtmpAoDBoh/remotes86d135fd24e7/ropensci-tabulapdf-7325a8d/DESCRIPTION’ ... OK
-## * preparing ‘tabulapdf’:
-## * checking DESCRIPTION meta-information ... OK
-## * checking for LF line-endings in source and make files and shell scripts
-## * checking for empty or unneeded directories
-## Removed empty directory ‘tabulapdf/docs’
-## * building ‘tabulapdf_1.0.5-4.tar.gz’
-
-## Warning in i.p(...): installation of package
-## &#39;/var/folders/jw/4t4swxld5c5f_5xhv0_bzbr00000gn/T//RtmpAoDBoh/file86d17e81d561/tabulapdf_1.0.5-4.tar.gz&#39;
-## had non-zero exit status</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># This file should be sourced at the beginning of individual city files to</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co"># set up the right data and output paths</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># the input path should point to a local copy of the Google Drive folder</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># run XX Makefile to sync your local copy with the current most updated copy of the google drive folder</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>list.of.packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;lubridate&quot;</span>,<span class="st">&quot;readxl&quot;</span>,<span class="st">&quot;plyr&quot;</span>,<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tidyverse&quot;</span>,<span class="st">&quot;tidylog&quot;</span>,<span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;this.path&quot;</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>new.packages <span class="ot">&lt;-</span> list.of.packages[<span class="sc">!</span>(list.of.packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new.packages)) <span class="fu">install.packages</span>(new.packages)</span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#library(here)</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#library(rmarkdown)</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;
-
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     date, intersect, setdiff, union</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;
-
-## The following objects are masked from &#39;package:plyr&#39;:
-## 
-##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-##     summarize
-
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ forcats 1.0.0     ✔ stringr 1.5.1
-## ✔ purrr   1.0.2     ✔ tibble  3.2.1
-## ✔ readr   2.1.5     ✔ tidyr   1.3.0
-
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::arrange()   masks plyr::arrange()
-## ✖ purrr::compact()   masks plyr::compact()
-## ✖ dplyr::count()     masks plyr::count()
-## ✖ dplyr::desc()      masks plyr::desc()
-## ✖ dplyr::failwith()  masks plyr::failwith()
-## ✖ dplyr::filter()    masks stats::filter()
-## ✖ dplyr::id()        masks plyr::id()
-## ✖ dplyr::lag()       masks stats::lag()
-## ✖ dplyr::mutate()    masks plyr::mutate()
-## ✖ dplyr::rename()    masks plyr::rename()
-## ✖ dplyr::summarise() masks plyr::summarise()
-## ✖ dplyr::summarize() masks plyr::summarize()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">library</span>(tidylog)</span></code></pre></div>
-<pre><code>## Warning: package &#39;tidylog&#39; was built under R version 4.3.3
-
-## 
-## Attaching package: &#39;tidylog&#39;
-## 
-## The following objects are masked from &#39;package:tidyr&#39;:
-## 
-##     drop_na, fill, gather, pivot_longer, pivot_wider, replace_na,
-##     separate_wider_delim, separate_wider_position,
-##     separate_wider_regex, spread, uncount
-## 
-## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     add_count, add_tally, anti_join, count, distinct, distinct_all,
-##     distinct_at, distinct_if, filter, filter_all, filter_at, filter_if,
-##     full_join, group_by, group_by_all, group_by_at, group_by_if,
-##     inner_join, left_join, mutate, mutate_all, mutate_at, mutate_if,
-##     relocate, rename, rename_all, rename_at, rename_if, rename_with,
-##     right_join, sample_frac, sample_n, select, select_all, select_at,
-##     select_if, semi_join, slice, slice_head, slice_max, slice_min,
-##     slice_sample, slice_tail, summarise, summarise_all, summarise_at,
-##     summarise_if, summarize, summarize_all, summarize_at, summarize_if,
-##     tally, top_frac, top_n, transmute, transmute_all, transmute_at,
-##     transmute_if, ungroup
-## 
-## The following objects are masked from &#39;package:plyr&#39;:
-## 
-##     count, mutate, rename, summarise, summarize
-## 
-## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">library</span>(this.path)</span></code></pre></div>
-<pre><code>## Warning: package &#39;this.path&#39; was built under R version 4.3.3
-
-## 
-## Attaching package: &#39;this.path&#39;
-## 
-## The following object is masked from &#39;package:plyr&#39;:
-## 
-##     here</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># disable scientific notation</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co"># Avoid conflicts</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">#here = here::here</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>summarize <span class="ot">=</span> dplyr<span class="sc">::</span>summarize</span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>rename <span class="ot">=</span> dplyr<span class="sc">::</span>rename</span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>count <span class="ot">=</span> dplyr<span class="sc">::</span>count</span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="co"># functions to set path in files that call setup.R</span></span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>get_inpath <span class="ot">&lt;-</span> <span class="cf">function</span>(base_path){</span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>  original_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(base_path, <span class="st">&#39;original/&#39;</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>  intermediate_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(base_path, <span class="st">&#39;intermediate/&#39;</span>)</span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>  raw_data_path <span class="ot">&lt;-</span> <span class="cf">if</span>(<span class="fu">dir.exists</span>(intermediate_path)) intermediate_path <span class="cf">else</span> original_path</span>
-<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>  <span class="fu">return</span>(raw_data_path)</span>
-<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a>}</span>
-<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a>get_outpath <span class="ot">&lt;-</span> <span class="cf">function</span>(base_path) {</span>
-<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a>  out_data_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(base_path, <span class="st">&#39;final/&#39;</span>)</span>
-<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a>  <span class="fu">return</span>(out_data_path)</span>
-<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Set up the path to the data</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>base_path <span class="ot">&lt;-</span> <span class="st">&quot;C:/Users/Owner/Documents/Police_Settlements/&quot;</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>raw_data_path <span class="ot">&lt;-</span> <span class="fu">get_inpath</span>(base_path)</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>out_data_path <span class="ot">&lt;-</span> <span class="fu">get_outpath</span>(base_path)</span></code></pre></div>
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Display the first few rows of the data to verify and column names</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 9
+##   summary_allegations               incident_date filed_date closed_date        
+##   &lt;chr&gt;                             &lt;date&gt;        &lt;date&gt;     &lt;dttm&gt;             
+## 1 Department: Police; Summary Alle… NA            NA         2014-09-10 00:00:00
+## 2 Department: Police; Summary Alle… NA            NA         2014-08-21 00:00:00
+## 3 Department: Police; Summary Alle… NA            NA         2014-07-18 00:00:00
+## 4 Department: Police; Summary Alle… NA            NA         2014-09-19 00:00:00
+## 5 Department: Courts; Summary Alle… NA            NA         2015-01-12 00:00:00
+## 6 Department: Police; Summary Alle… NA            NA         2015-03-23 00:00:00
+## # ℹ 5 more variables: amount_awarded &lt;dbl&gt;, location &lt;chr&gt;,
+## #   calendar_year &lt;dbl&gt;, incident_year &lt;dbl&gt;, state &lt;chr&gt;</code></pre>
 
 </body>
 </html>

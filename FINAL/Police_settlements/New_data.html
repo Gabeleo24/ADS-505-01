@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="setting-up-all-data">Setting up all data</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># I want all data to look like this format [&quot;plaintiff_name&quot;,&quot;claim_number&quot;,&quot;summary_allegations&quot;,&quot;incident_date&quot;,&quot;filed_date&quot;,&quot;plaintiff_attorney&quot;,&quot;closed_date&quot;,&quot;amount_awarded&quot;,&quot;location&quot;,&quot;calendar_year&quot;,&quot;incident_year&quot;,&quot;filed_year&quot;,&quot;city&quot;,&quot;state&quot;,&quot;other_expenses&quot;,&quot;collection&quot;,&quot;total_incurred&quot;,&quot;court&quot;,&quot;docket_number&quot;,&quot;matter_name&quot;,&quot;case_outcome&quot;]</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co"># if the data does not have a column, I want it to be NA</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># if the data is not correctly formatted, I want it to change to the correct format such as [] </span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># I want to create a function that will take in a data frame and return a data frame that is formatted correctly</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co"># Define the format_data function</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>format_data <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>    required_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;plaintiff_name&quot;</span>, <span class="st">&quot;claim_number&quot;</span>, <span class="st">&quot;summary_allegations&quot;</span>, <span class="st">&quot;incident_date&quot;</span>, <span class="st">&quot;filed_date&quot;</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>                          <span class="st">&quot;plaintiff_attorney&quot;</span>, <span class="st">&quot;closed_date&quot;</span>, <span class="st">&quot;amount_awarded&quot;</span>, <span class="st">&quot;location&quot;</span>, <span class="st">&quot;calendar_year&quot;</span>, </span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>                          <span class="st">&quot;incident_year&quot;</span>, <span class="st">&quot;filed_year&quot;</span>, <span class="st">&quot;city&quot;</span>, <span class="st">&quot;state&quot;</span>, <span class="st">&quot;other_expenses&quot;</span>, <span class="st">&quot;collection&quot;</span>, </span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>                          <span class="st">&quot;total_incurred&quot;</span>, <span class="st">&quot;court&quot;</span>, <span class="st">&quot;docket_number&quot;</span>, <span class="st">&quot;matter_name&quot;</span>, <span class="st">&quot;case_outcome&quot;</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>    </span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>    <span class="co"># Add missing columns with NA values</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    <span class="cf">for</span> (col <span class="cf">in</span> required_columns) {</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>        <span class="cf">if</span> (<span class="sc">!</span>col <span class="sc">%in%</span> <span class="fu">colnames</span>(df)) {</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>            df[[col]] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>        }</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>    }</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    </span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>    <span class="co"># Reorder columns to match the required format</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>    df <span class="ot">&lt;-</span> df[, required_columns]</span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>    </span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>    <span class="fu">return</span>(df)</span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>}</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="co"># Load and format all CSV files in the specified directory</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>directory <span class="ot">&lt;-</span> <span class="st">&quot;/Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>file_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(directory, <span class="at">pattern =</span> <span class="st">&quot;*.csv&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(file_list, <span class="cf">function</span>(file) {</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(file)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    formatted_df <span class="ot">&lt;-</span> <span class="fu">format_data</span>(df)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="fu">return</span>(formatted_df)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>})</span></code></pre></div>
+<pre><code>## Rows: 65 Columns: 24
+
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (10): claim_number, plaintiff_name, summary_allegations, claim_or_lawsu...
+## dbl   (4): amount_awarded, calendar_year, incident_year, amount_demanded
+## lgl   (7): filed_date, filed_year, location, other_expenses, collection, tot...
+## date  (3): incident_date, closed_date, denied_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 82 Columns: 20
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (8): matter_name, court, docket_number, plaintiff_attorney, summary_all...
+## dbl  (3): amount_awarded, calendar_year, filed_year
+## lgl  (7): incident_date, incident_year, other_expenses, collection, total_in...
+## date (2): filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 51 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (6): matter_name, docket_number, court, plaintiff_attorney, city, state
+## dbl   (2): amount_awarded, calendar_year
+## lgl  (12): summary_allegations, plaintiff_name, case_outcome, filed_year, fi...
+## date  (1): closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 4 Columns: 22
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): city, state, incident_date_full, docket_number, court, plaintiff_n...
+## dbl  (3): incident_year, filed_year, amount_awarded
+## lgl  (9): calendar_year, filed_date, closed_date, other_expenses, collection...
+## date (1): incident_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 59 Columns: 23
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): city, state, docket_number, claim_number, plaintiff_name, plaintif...
+## dbl  (6): calendar_year, incident_year, filed_year, amount_awarded, other_ex...
+## lgl  (5): collection, case_outcome, court, matter_name, location
+## date (3): incident_date, filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 1515 Columns: 24
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (9): city, state, case_outcome, docket_number, matter_name, summary_al...
+## dbl   (2): calendar_year, amount_awarded
+## lgl  (12): incident_date, incident_year, filed_date, filed_year, other_expen...
+## date  (1): closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 54 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (6): docket_number, matter_name, case_outcome, summary_allegations, ci...
+## dbl   (3): amount_awarded, calendar_year, filed_year
+## lgl  (10): incident_date, incident_year, other_expenses, collection, total_i...
+## date  (2): filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 142 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (6): city, state, case_outcome, docket_number, plaintiff_name, matter_name
+## dbl  (3): calendar_year, amount_awarded, other_expenses
+## lgl (12): incident_date, incident_year, filed_date, filed_year, closed_date,...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 30 Columns: 22
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): plaintiff_name, defendant, docket_number, court, location, summary...
+## dbl  (4): amount_awarded, calendar_year, incident_year, filed_year
+## lgl  (6): other_expenses, total_incurred, claim_number, collection, matter_n...
+## date (3): closed_date, incident_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 78080 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (11): plaintiff_name, claim_number, summary_allegations, plaintiff_atto...
+## dbl   (7): amount_awarded, calendar_year, incident_year, filed_year, other_e...
+## dttm  (1): closed_date
+## date  (2): incident_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 371 Columns: 24
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (8): matter_name, longer_description, status, case_outcome, city, dock...
+## dbl   (3): amount_awarded, calendar_year, filed_year
+## lgl  (10): incident_date, incident_year, other_expenses, collection, total_i...
+## date  (3): filed_date, closed_date, disposition_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 503 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (7): city, state, case_outcome, claim_number, matter_name, location, s...
+## dbl   (2): calendar_year, amount_awarded
+## lgl  (11): incident_date, incident_year, filed_date, filed_year, other_expen...
+## date  (1): closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 58 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (4): city, state, claim_number, summary_allegations
+## dbl  (6): calendar_year, incident_year, amount_awarded, other_expenses, coll...
+## lgl  (9): filed_date, filed_year, case_outcome, docket_number, court, plaint...
+## date (2): incident_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 237 Columns: 22
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (7): matter_name, docket_number, summary_allegations, plaintiff_attorne...
+## dbl  (5): amount_awarded, year, calendar_year, incident_year, filed_year
+## lgl  (7): other_expenses, total_incurred, claim_number, collection, case_out...
+## date (3): incident_date, filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 8 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): city, state, case_outcome, docket_number, court, plaintiff_name, p...
+## dbl  (3): incident_year, filed_year, amount_awarded
+## lgl  (7): calendar_year, closed_date, other_expenses, collection, total_incu...
+## date (2): incident_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 997 Columns: 23
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): fiscal_year, city, state, docket_number, claim_number, matter_name...
+## dbl  (4): incident_year, filed_year, amount_awarded, calendar_year
+## lgl  (7): other_expenses, collection, total_incurred, case_outcome, court, p...
+## date (3): incident_date, filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 254 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (7): claim_number, plaintiff_name, matter_name, case_outcome, plaintiff...
+## dbl  (2): calendar_year, amount_awarded
+## lgl (12): closed_date, incident_date, incident_year, filed_date, filed_year,...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 87 Columns: 23
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): city, state, case_outcome, docket_number, claim_number, plaintiff_...
+## dbl  (4): calendar_year, filed_year, amount_awarded, collection
+## lgl  (7): incident_date, incident_year, other_expenses, total_incurred, cour...
+## date (3): filed_date, closed_date, opened_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 56 Columns: 22
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): city, state, case_outcome, docket_number, court, plaintiff_attorne...
+## dbl  (3): calendar_year, filed_year, amount_awarded
+## lgl  (8): incident_date, incident_year, other_expenses, collection, total_in...
+## date (2): filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 28 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (8): city, state, case_outcome, docket_number, court, plaintiff_name, m...
+## dbl  (4): calendar_year, incident_year, filed_year, amount_awarded
+## lgl  (7): filed_date, other_expenses, collection, total_incurred, claim_numb...
+## date (2): incident_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 32632 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (7): plaintiff_name, claim_number, summary_allegations, plaintiff_attor...
+## dbl  (4): amount_awarded, calendar_year, incident_year, filed_year
+## lgl  (7): other_expenses, collection, total_incurred, court, docket_number, ...
+## dttm (1): closed_date
+## date (2): incident_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 108 Columns: 23
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (9): city, state, docket_number, claim_number, plaintiff_name, plaintif...
+## dbl  (6): calendar_year, incident_year, filed_year, amount_awarded, other_ex...
+## lgl  (5): collection, case_outcome, court, matter_name, location
+## date (3): incident_date, filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 38 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (6): city, state, docket_number, plaintiff_name, location, summary_alle...
+## dbl  (4): calendar_year, incident_year, filed_year, amount_awarded
+## lgl  (8): other_expenses, collection, total_incurred, case_outcome, claim_nu...
+## date (3): incident_date, filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 69 Columns: 31
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (12): claim_number, defendant, lawsuit_status, defendant_attorney, plai...
+## dbl   (7): total_reimbursed, incident_year, calendar_year, filed_year, amoun...
+## lgl   (7): matter_name, docket_number, court, case_outcome, other_expenses, ...
+## date  (5): trial_date, incident_date, date_received, closed_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 1424 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (5): city, state, docket_number, plaintiff_name, location
+## dbl   (3): calendar_year, incident_year, amount_awarded
+## lgl  (11): filed_date, filed_year, other_expenses, collection, total_incurre...
+## date  (2): incident_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 10 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (6): court, matter_name, docket_number, summary_allegations, city, state
+## dbl   (3): amount_awarded, calendar_year, incident_year
+## lgl  (10): case_number, location, total_incurred, other_expenses, filed_date...
+## date  (2): incident_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 2 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (7): city, state, case_outcome, court, plaintiff_name, location, summa...
+## dbl   (3): calendar_year, incident_year, amount_awarded
+## lgl  (10): filed_date, filed_year, closed_date, other_expenses, collection, ...
+## date  (1): incident_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 87 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr   (5): city, state, docket_number, matter_name, summary_allegations
+## dbl   (3): calendar_year, filed_year, amount_awarded
+## lgl  (11): incident_date, incident_year, other_expenses, collection, total_i...
+## date  (2): filed_date, closed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 40 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (7): city, state, case_outcome, docket_number, claim_number, court, pla...
+## dbl  (2): calendar_year, amount_awarded
+## lgl (12): incident_date, incident_year, filed_date, filed_year, closed_date,...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 14 Columns: 24
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (10): city, state, case_outcome, docket_number, court, plaintiff_attorn...
+## dbl   (4): calendar_year, incident_year, filed_year, amount_awarded
+## lgl   (6): other_expenses, collection, total_incurred, claim_number, plainti...
+## date  (4): incident_date, filed_date, closed_date, voucher_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 15 Columns: 21
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (7): plaintiff_name, defendant, case_outcome, summary_allegations, dock...
+## dbl  (3): amount_awarded, calendar_year, filed_year
+## lgl  (9): matter_name, court, incident_date, location, incident_year, other_...
+## date (2): closed_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Combine all data frames into one</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(all_data)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># Save the combined data to a new CSV file</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>output_csv_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(directory, <span class="st">&quot;combined_data.csv&quot;</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="fu">write_csv</span>(combined_data, output_csv_path)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co"># Print the path of the saved CSV file to verify</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Combined data saved to:&quot;</span>, output_csv_path))</span></code></pre></div>
+<pre><code>## [1] &quot;Combined data saved to: /Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/combined_data.csv&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Only keep the columns that are needed for the analysis</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>selected_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;summary_allegations&quot;</span>, <span class="st">&quot;incident_date&quot;</span>, <span class="st">&quot;filed_date&quot;</span>, <span class="st">&quot;closed_date&quot;</span>, <span class="st">&quot;amount_awarded&quot;</span>, <span class="st">&quot;location&quot;</span>, <span class="st">&quot;calendar_year&quot;</span>, <span class="st">&quot;incident_year&quot;</span>, <span class="st">&quot;state&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>df_selected <span class="ot">&lt;-</span> combined_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">all_of</span>(selected_columns))</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co"># Save the selected data to a new CSV file</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>output_csv_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(directory, <span class="st">&quot;selected_data.csv&quot;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="fu">write_csv</span>(df_selected, output_csv_path)</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co"># Print the path of the saved CSV file to verify</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Selected data saved to:&quot;</span>, output_csv_path))</span></code></pre></div>
+<pre><code>## [1] &quot;Selected data saved to: /Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/selected_data.csv&quot;</code></pre>
+
+</body>
+</html>
