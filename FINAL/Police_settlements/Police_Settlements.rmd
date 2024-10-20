@@ -33,10 +33,134 @@ head(data)
 ```
 
 ```{r}
-# show me the list for the first column 
-# Show the unique values and their counts for the first column
-table(data$summary_allegations)
+
+# Install dplyr if not already installed
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+
+# Load dplyr for piping functionality
+library(dplyr)
+```
+```{r}
+# Define a function to check for these special keywords and replace the summary_allegations
+replace_with_keyword <- function(text) {
+  if (grepl("civil rights", text, ignore.case = TRUE)) {
+    return("Civil Rights")
+  } else if (grepl("declaratory judgment", text, ignore.case = TRUE)) {
+    return("Declaratory Judgment")
+  } else if (grepl("litigation", text, ignore.case = TRUE)) {
+    return("Litigation")
+  } else if (grepl("personal injury", text, ignore.case = TRUE)) {
+    return("Personal Injury")
+  } else if (grepl("negligence", text, ignore.case = TRUE)) {
+    return("Negligence")
+  } else if (grepl("presuit", text, ignore.case = TRUE)) {
+    return("Presuit")
+  } else if (grepl("brutality", text, ignore.case = TRUE)) {
+    return("Brutality")
+  } else if (grepl("cruel & unusual", text, ignore.case = TRUE)) {
+    return("Cruel & Unusual")
+  } else if (grepl("due process", text, ignore.case = TRUE)) {
+    return("Due Process")
+  } else if (grepl("errors & omissions", text, ignore.case = TRUE)) {
+    return("Errors & Omissions")
+  } else if (grepl("fail to render care", text, ignore.case = TRUE)) {
+    return("Fail to Render Care")
+  } else if (grepl("failure to enforce", text, ignore.case = TRUE)) {
+    return("Failure to Enforce")
+  } else if (grepl("false arrest", text, ignore.case = TRUE)) {
+    return("False Arrest")
+  } else if (grepl("improper auto procedure", text, ignore.case = TRUE)) {
+    return("Improper Auto Procedure")
+  } else if (grepl("miscellaneous", text, ignore.case = TRUE)) {
+    return("Miscellaneous")
+  } else if (grepl("negligent supervision", text, ignore.case = TRUE)) {
+    return("Negligent Supervision")
+  } else if (grepl("search & seizure", text, ignore.case = TRUE)) {
+    return("Search & Seizure")
+  } else {
+    return(text)  # If no keyword is found, return the original text
+  }
+}
+
+# Apply the function to the summary_allegations column
+data <- data %>%
+  mutate(summary_allegations = sapply(summary_allegations, replace_with_keyword))
+#show the data
+print(data)
 ```
 
+
+# Define the replace_with_keyword function
+replace_with_keyword <- function(text) {
+  if (grepl("excessive force", text, ignore.case = TRUE)) {
+    return("Excessive Force")
+  } else if (grepl("unlawful arrest", text, ignore.case = TRUE)) {
+    return("Unlawful Arrest")
+  } else if (grepl("unlawful entry", text, ignore.case = TRUE)) {
+    return("Unlawful Entry")
+  } else if (grepl("unlawful seizure", text, ignore.case = TRUE)) {
+    return("Unlawful Seizure")
+  } else if (grepl("malicious prosecution", text, ignore.case = TRUE)) {
+    return("Malicious Prosecution")
+  } else if (grepl("42 U.S.C.|1983 case", text, ignore.case = TRUE)) {
+    return("Civil Rights Violation")
+  } else if (grepl("4th Amendment Violations", text, ignore.case = TRUE)) {
+    return("4th Amendment Violations")
+  } else {
+    return(text)  # Return the original text if no match
+  }
+}
+
+# Apply the function to rows 1 to 42
+data <- data %>%
+  slice(1:42) %>%  # Select rows 1 to 42
+  mutate(summary_allegations = sapply(summary_allegations, replace_with_keyword))
+
+# If you want to apply the transformation only to rows 1-42 and leave the rest unchanged:
+combined_data <- data %>%
+   mutate(summary_allegations = ifelse(row_number() <= 42, 
+                                       sapply(summary_allegations, replace_with_keyword), 
+                                       summary_allegations))
+
+# View the transformed data
+table(head(combined_data$summary_allegations, 42))  # View the first 42 rows
+```
 ```{r}
-# we will edit summary_allegations to 
+library(dplyr)
+
+# Define a function to standardize summary allegations
+replace_with_keyword <- function(text) {
+  if (grepl("civil rights", text, ignore.case = TRUE)) {
+    return("Civil Rights")
+  } else if (grepl("wrongful arrest", text, ignore.case = TRUE)) {
+    return("Wrongful Arrest")
+  } else if (grepl("negligence", text, ignore.case = TRUE)) {
+    return("Negligence")
+  } else if (grepl("police shooting", text, ignore.case = TRUE)) {
+    return("Police Shooting")
+  } else if (grepl("wrongful demolition", text, ignore.case = TRUE)) {
+    return("Wrongful Demolition")
+  } else if (grepl("other", text, ignore.case = TRUE)) {
+    return("Other")
+  } else {
+    return(text)  # Return original if no match is found
+  }
+}
+
+# Apply the function to the summary_allegations column
+data <- data %>%
+  mutate(summary_allegations = sapply(summary_allegations, replace_with_keyword))
+
+# Group by the new, standardized summary_allegations and count occurrences
+grouped_data <- data %>%
+  group_by(summary_allegations) %>%
+  summarise(count = n())
+
+# View the grouped data with counts
+print(grouped_data)
+# show the entire data
+print(data)
+head(data)
+

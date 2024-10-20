@@ -1,0 +1,140 @@
+---
+title: "Untitled"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# Disable scientific notation
+options(scipen = 999)
+
+# Avoid conflicts
+summarize <- dplyr::summarize
+rename <- dplyr::rename
+count <- dplyr::count
+
+# Define the base path to your CSV files
+df <- "/Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/selected_data.csv"
+```
+
+```{r}
+#load the library
+library(readr)
+
+# Load the data from the CSV file
+data <- read_csv(df)
+
+# Display the first few rows of the data to verify and column names
+head(data)
+
+```
+
+```{r}
+
+# Install dplyr if not already installed
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+
+# Load dplyr for piping functionality
+library(dplyr)
+```
+
+```{r}  
+library(dplyr)
+
+# Step 1: Clean the summary_allegations column to remove unnecessary text before applying keyword replacement
+data <- data %>%
+  mutate(summary_allegations = gsub(".*Summary Allegations: ", "", summary_allegations))  # Remove department info
+
+# Step 2: Define the function to standardize summary allegations
+replace_with_keyword <- function(text) {
+  if (grepl("civil rights|equity|constituional claim|constitutional violations", text, ignore.case = TRUE)) {
+    return("Civil Rights")
+  } else if (grepl("wrongful arrest|prisoner complaint common law", text, ignore.case = TRUE)) {
+    return("Wrongful Arrest")
+  } else if (grepl("Violation of constitutional rights:", text, ignore.case = TRUE)) {
+    return("Violation of Constitutional Rights")
+  } else if (grepl("Uncoded", text, ignore.case = TRUE)) {
+    return("Uncoded")
+  } else if (grepl("excessive force", text, ignore.case = TRUE)) {
+    return("Excessive Force")
+  } else if (grepl("search & seizure", text, ignore.case = TRUE) | grepl("unlawful search", text, ignore.case = TRUE)) {
+    return("Search & Seizure")
+  } else if (grepl("false imprisonment", text, ignore.case = TRUE)) {
+    return("False Imprisonment")
+  } else if (grepl("assault and battery|Assault/Slander/Liable|property damages", text, ignore.case = TRUE)) {
+    return("Assault & Battery")
+  } else if (grepl("malicious prosecution", text, ignore.case = TRUE)) {
+    return("Malicious Prosecution")
+  } else if (grepl("negligence", text, ignore.case = TRUE)) {
+    return("Negligence")
+  } else if (grepl("police shooting", text, ignore.case = TRUE)) {
+    return("Police Shooting")
+  } else if (grepl("unlawful detention", text, ignore.case = TRUE)) {
+    return("Unlawful Detention")
+  } else if (grepl("police misconduct|officer misconduct|police activity", text, ignore.case = TRUE)) {
+    return("Police/Officer Misconduct")
+  } else if (grepl("motor Vehicle Incident|Struck by Police Cruiser|car accident|Breathalyzer|auto", text, ignore.case = TRUE)) {
+    return("Motor Vehicle Incident")
+  } else if (grepl("failure to enforce", text, ignore.case = TRUE)) {
+    return("Failure to Enforce")
+} else if (grepl("errors & omissions", text, ignore.case = TRUE)) {
+    return("Errors & Omissions")
+  } else if (grepl("malicious prosecution", text, ignore.case = TRUE)) {
+    return("Malicious Prosecution")
+  } else if (grepl("negligent|failure to provide medical care|fail to render medcare|failure to prevent attempts of suicide", text, ignore.case = TRUE)) {
+    return("Negligence")
+  } else if (grepl("miscellaneous|trash container|whistle blower action", text, ignore.case = TRUE)) {
+    return("Miscellaneous")
+  } else if (grepl("improper auto procedure|improper procedure|impropr procedure", text, ignore.case = TRUE)) {
+    return("Improper Auto Procedure")
+  } else if (grepl("cruel", text, ignore.case = TRUE)) {
+    return("Wrongful Arrest")
+  } else if (grepl("brutality|Personal Injury: Exessive force|T.R.O.", text, ignore.case = TRUE)) {
+    return("Excessive Force")
+  } else if (grepl("false arrest|false imprisonment", text, ignore.case = TRUE)) {
+    return("False Imprisonment")
+  } else if (grepl("due process", text, ignore.case = TRUE)) {
+    return("Other")
+  } else if (grepl("DUI stop", text, ignore.case = TRUE)) {
+    return("Civil Rights")
+  } else if (grepl("illegal search|seizure", text, ignore.case = TRUE)) {
+    return("Search & Seizure")
+  } else if (grepl("reversed conviction|Unjust Imprisonment Act claim", text, ignore.case = TRUE)) {
+    return("Wrongful Arrest")
+  } else if (grepl("litigation|presuit|Subrogation claim", text, ignore.case = TRUE)) {
+    return("Litigation")  
+  } else if (grepl("sexual harrasement|sexual assault", text, ignore.case = TRUE)) {
+    return("Sexual Harassment")
+  } else if (grepl("personal injury", text, ignore.case = TRUE)) {
+    return("Personal Injury")
+  } else if (grepl("declaratory judgment", text, ignore.case = TRUE)) {
+    return("Declaratory Judgment")
+  } else if (grepl("Employment Complaint-Common Law", text, ignore.case = TRUE)) {
+    return("Employment Complaint")
+  } else if (grepl("Violation of constitutional rights", text, ignore.case = TRUE)) {
+    return("Violation of constitutional rights")
+  } else if (grepl("Discrimination - sex", text, ignore.case = TRUE)) {
+    return("Race Discrimination")
+  } else {
+    return(text)  # Return the original text if no match is found
+  }
+}
+
+# Step 3: Apply the function to the cleaned summary_allegations column
+data <- data %>%
+  mutate(summary_allegations = sapply(summary_allegations, replace_with_keyword))
+
+# Step 4: Save the updated dataset as a new CSV file
+write.csv(data, "updated_police_settlements.csv", row.names = FALSE)
+
+# Optional: View the first few rows to inspect the saved file
+head(data, 100) %>% 
+  knitr::kable()
+
+```

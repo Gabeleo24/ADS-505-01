@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="untitled">Untitled</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Disable scientific notation</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Avoid conflicts</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>summarize <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>summarize</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>rename <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>rename</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>count <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>count</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co"># Define the base path to your CSV files</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="st">&quot;/Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/selected_data.csv&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co">#load the library</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># Load the data from the CSV file</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(df)</span></code></pre></div>
+<pre><code>## Rows: 117120 Columns: 9
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (3): summary_allegations, location, state
+## dbl  (3): amount_awarded, calendar_year, incident_year
+## dttm (1): closed_date
+## date (2): incident_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Display the first few rows of the data to verify and column names</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 9
+##   summary_allegations               incident_date filed_date closed_date        
+##   &lt;chr&gt;                             &lt;date&gt;        &lt;date&gt;     &lt;dttm&gt;             
+## 1 Department: Police; Summary Alle… NA            NA         2014-09-10 00:00:00
+## 2 Department: Police; Summary Alle… NA            NA         2014-08-21 00:00:00
+## 3 Department: Police; Summary Alle… NA            NA         2014-07-18 00:00:00
+## 4 Department: Police; Summary Alle… NA            NA         2014-09-19 00:00:00
+## 5 Department: Courts; Summary Alle… NA            NA         2015-01-12 00:00:00
+## 6 Department: Police; Summary Alle… NA            NA         2015-03-23 00:00:00
+## # ℹ 5 more variables: amount_awarded &lt;dbl&gt;, location &lt;chr&gt;,
+## #   calendar_year &lt;dbl&gt;, incident_year &lt;dbl&gt;, state &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Install dplyr if not already installed</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>}</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co"># Load dplyr for piping functionality</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co"># Step 1: Clean the summary_allegations column to remove unnecessary text before applying keyword replacement</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">summary_allegations =</span> <span class="fu">gsub</span>(<span class="st">&quot;.*Summary Allegations: &quot;</span>, <span class="st">&quot;&quot;</span>, summary_allegations))  <span class="co"># Remove department info</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co"># Step 2: Define the function to standardize summary allegations</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>replace_with_keyword <span class="ot">&lt;-</span> <span class="cf">function</span>(text) {</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;civil rights|equity|constituional claim|constitutional violations&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Civil Rights&quot;</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;wrongful arrest|prisoner complaint common law&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Wrongful Arrest&quot;</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;Violation of constitutional rights:&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Violation of Constitutional Rights&quot;</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;Uncoded&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Uncoded&quot;</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;excessive force&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Excessive Force&quot;</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;search &amp; seizure&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;unlawful search&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Search &amp; Seizure&quot;</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;false imprisonment&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;False Imprisonment&quot;</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;assault and battery|Assault/Slander/Liable|property damages&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Assault &amp; Battery&quot;</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;malicious prosecution&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Malicious Prosecution&quot;</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;negligence&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Negligence&quot;</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;police shooting&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Police Shooting&quot;</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;unlawful detention&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Unlawful Detention&quot;</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;police misconduct|officer misconduct|police activity&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Police/Officer Misconduct&quot;</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;motor Vehicle Incident|Struck by Police Cruiser|car accident|Breathalyzer|auto&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Motor Vehicle Incident&quot;</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;failure to enforce&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Failure to Enforce&quot;</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;errors &amp; omissions&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Errors &amp; Omissions&quot;</span>)</span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;malicious prosecution&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Malicious Prosecution&quot;</span>)</span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;negligent|failure to provide medical care|fail to render medcare|failure to prevent attempts of suicide&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-44"><a href="#cb8-44" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Negligence&quot;</span>)</span>
+<span id="cb8-45"><a href="#cb8-45" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;miscellaneous|trash container|whistle blower action&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-46"><a href="#cb8-46" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Miscellaneous&quot;</span>)</span>
+<span id="cb8-47"><a href="#cb8-47" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;improper auto procedure|improper procedure|impropr procedure&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-48"><a href="#cb8-48" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Improper Auto Procedure&quot;</span>)</span>
+<span id="cb8-49"><a href="#cb8-49" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;cruel&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-50"><a href="#cb8-50" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Wrongful Arrest&quot;</span>)</span>
+<span id="cb8-51"><a href="#cb8-51" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;brutality|Personal Injury: Exessive force|T.R.O.&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-52"><a href="#cb8-52" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Excessive Force&quot;</span>)</span>
+<span id="cb8-53"><a href="#cb8-53" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;false arrest|false imprisonment&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-54"><a href="#cb8-54" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;False Imprisonment&quot;</span>)</span>
+<span id="cb8-55"><a href="#cb8-55" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;due process&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-56"><a href="#cb8-56" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Other&quot;</span>)</span>
+<span id="cb8-57"><a href="#cb8-57" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;DUI stop&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-58"><a href="#cb8-58" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Civil Rights&quot;</span>)</span>
+<span id="cb8-59"><a href="#cb8-59" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;illegal search|seizure&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-60"><a href="#cb8-60" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Search &amp; Seizure&quot;</span>)</span>
+<span id="cb8-61"><a href="#cb8-61" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;reversed conviction|Unjust Imprisonment Act claim&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-62"><a href="#cb8-62" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Wrongful Arrest&quot;</span>)</span>
+<span id="cb8-63"><a href="#cb8-63" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;litigation|presuit|Subrogation claim&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-64"><a href="#cb8-64" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Litigation&quot;</span>)  </span>
+<span id="cb8-65"><a href="#cb8-65" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;sexual harrasement|sexual assault&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-66"><a href="#cb8-66" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Sexual Harassment&quot;</span>)</span>
+<span id="cb8-67"><a href="#cb8-67" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;personal injury&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-68"><a href="#cb8-68" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Personal Injury&quot;</span>)</span>
+<span id="cb8-69"><a href="#cb8-69" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;declaratory judgment&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-70"><a href="#cb8-70" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Declaratory Judgment&quot;</span>)</span>
+<span id="cb8-71"><a href="#cb8-71" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;Employment Complaint-Common Law&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-72"><a href="#cb8-72" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Employment Complaint&quot;</span>)</span>
+<span id="cb8-73"><a href="#cb8-73" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;Violation of constitutional rights&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-74"><a href="#cb8-74" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Violation of constitutional rights&quot;</span>)</span>
+<span id="cb8-75"><a href="#cb8-75" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">&quot;Discrimination - sex&quot;</span>, text, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb8-76"><a href="#cb8-76" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">&quot;Race Discrimination&quot;</span>)</span>
+<span id="cb8-77"><a href="#cb8-77" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-78"><a href="#cb8-78" tabindex="-1"></a>    <span class="fu">return</span>(text)  <span class="co"># Return the original text if no match is found</span></span>
+<span id="cb8-79"><a href="#cb8-79" tabindex="-1"></a>  }</span>
+<span id="cb8-80"><a href="#cb8-80" tabindex="-1"></a>}</span>
+<span id="cb8-81"><a href="#cb8-81" tabindex="-1"></a></span>
+<span id="cb8-82"><a href="#cb8-82" tabindex="-1"></a><span class="co"># Step 3: Apply the function to the cleaned summary_allegations column</span></span>
+<span id="cb8-83"><a href="#cb8-83" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb8-84"><a href="#cb8-84" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">summary_allegations =</span> <span class="fu">sapply</span>(summary_allegations, replace_with_keyword))</span>
+<span id="cb8-85"><a href="#cb8-85" tabindex="-1"></a></span>
+<span id="cb8-86"><a href="#cb8-86" tabindex="-1"></a><span class="co"># Step 4: Save the updated dataset as a new CSV file</span></span>
+<span id="cb8-87"><a href="#cb8-87" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="st">&quot;updated_police_settlements.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-88"><a href="#cb8-88" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" tabindex="-1"></a><span class="co"># Optional: View the first few rows to inspect the saved file</span></span>
+<span id="cb8-90"><a href="#cb8-90" tabindex="-1"></a><span class="fu">head</span>(data, <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-91"><a href="#cb8-91" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">summary_allegations</th>
+<th align="left">incident_date</th>
+<th align="left">filed_date</th>
+<th align="left">closed_date</th>
+<th align="right">amount_awarded</th>
+<th align="left">location</th>
+<th align="right">calendar_year</th>
+<th align="right">incident_year</th>
+<th align="left">state</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-09-10</td>
+<td align="right">1970.04</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Other</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-08-21</td>
+<td align="right">179.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-07-18</td>
+<td align="right">100.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Wrongful Arrest</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-09-19</td>
+<td align="right">17500.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Wrongful Arrest</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-01-12</td>
+<td align="right">907.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Other</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-03-23</td>
+<td align="right">1682.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-09-22</td>
+<td align="right">20000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Wrongful Demolition</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-11-24</td>
+<td align="right">538.50</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Wrongful Arrest</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2016-02-03</td>
+<td align="right">500.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Other</td>
+<td align="left">2016-07-15</td>
+<td align="left">NA</td>
+<td align="left">2016-10-27</td>
+<td align="right">500.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">2016</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">2015-12-01</td>
+<td align="left">NA</td>
+<td align="left">2016-10-25</td>
+<td align="right">1215.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">2015</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Wrongful Arrest</td>
+<td align="left">2015-07-20</td>
+<td align="left">NA</td>
+<td align="left">2017-04-18</td>
+<td align="right">1750.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">2015</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Police Shooting</td>
+<td align="left">2017-01-29</td>
+<td align="left">NA</td>
+<td align="left">2017-05-12</td>
+<td align="right">500.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">2017</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">2017-03-10</td>
+<td align="left">NA</td>
+<td align="left">2017-07-12</td>
+<td align="right">1300.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">2017</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Wrongful Arrest</td>
+<td align="left">2015-02-20</td>
+<td align="left">NA</td>
+<td align="left">2017-11-20</td>
+<td align="right">75000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">2015</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Wrongful Arrest</td>
+<td align="left">2017-02-02</td>
+<td align="left">NA</td>
+<td align="left">2017-10-18</td>
+<td align="right">826.72</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">2017</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">2017-06-22</td>
+<td align="left">NA</td>
+<td align="left">2017-10-04</td>
+<td align="right">50000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">2017</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">2016-11-20</td>
+<td align="left">NA</td>
+<td align="left">2018-01-29</td>
+<td align="right">182.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">2016</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">2017-09-03</td>
+<td align="left">NA</td>
+<td align="left">2018-11-15</td>
+<td align="right">19000.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">2017</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Police Shooting</td>
+<td align="left">2018-06-20</td>
+<td align="left">NA</td>
+<td align="left">2018-12-26</td>
+<td align="right">1205.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">2018</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="left">2018-04-25</td>
+<td align="left">NA</td>
+<td align="left">2019-05-14</td>
+<td align="right">500.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">2018</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">2017-10-28</td>
+<td align="left">NA</td>
+<td align="left">2019-05-28</td>
+<td align="right">50000.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">2017</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">2018-08-29</td>
+<td align="left">NA</td>
+<td align="left">2019-05-28</td>
+<td align="right">6000.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">2018</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Wrongful Arrest</td>
+<td align="left">2018-09-05</td>
+<td align="left">NA</td>
+<td align="left">2020-05-19</td>
+<td align="right">15000.00</td>
+<td align="left">NA</td>
+<td align="right">2020</td>
+<td align="right">2018</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="left">2019-04-28</td>
+<td align="left">NA</td>
+<td align="left">2019-09-26</td>
+<td align="right">1040.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">2019</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Other</td>
+<td align="left">2019-04-02</td>
+<td align="left">NA</td>
+<td align="left">2019-07-26</td>
+<td align="right">365.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">2019</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Wrongful Arrest</td>
+<td align="left">2019-09-25</td>
+<td align="left">NA</td>
+<td align="left">2020-05-08</td>
+<td align="right">130000.00</td>
+<td align="left">NA</td>
+<td align="right">2020</td>
+<td align="right">2019</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-07-15</td>
+<td align="right">30000.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-08-01</td>
+<td align="right">200000.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-08-09</td>
+<td align="right">200000.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-08-06</td>
+<td align="right">47500.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-09-08</td>
+<td align="right">32000.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-11-24</td>
+<td align="right">175000.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2014-10-17</td>
+<td align="right">500.00</td>
+<td align="left">NA</td>
+<td align="right">2014</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-03-24</td>
+<td align="right">25000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-03-24</td>
+<td align="right">7000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-04-01</td>
+<td align="right">20000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-05-31</td>
+<td align="right">60000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-05-01</td>
+<td align="right">7500.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-07-28</td>
+<td align="right">160000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Negligence</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-11-20</td>
+<td align="right">200.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2016-02-17</td>
+<td align="right">2000000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Miscellaneous</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2016-06-14</td>
+<td align="right">2700.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2016-06-28</td>
+<td align="right">130000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2016-07-14</td>
+<td align="right">20000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2016-10-25</td>
+<td align="right">12772.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Negligence</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2016-11-15</td>
+<td align="right">15000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2017-03-14</td>
+<td align="right">3000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2017-05-09</td>
+<td align="right">15000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2017-05-09</td>
+<td align="right">150000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2017-06-13</td>
+<td align="right">165000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Negligence</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2017-06-27</td>
+<td align="right">6000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2017-08-10</td>
+<td align="right">174000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Motor Vehicle Incident</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2017-08-29</td>
+<td align="right">27500.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-02-27</td>
+<td align="right">22500.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-02-27</td>
+<td align="right">18000.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-02-27</td>
+<td align="right">150000.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-01-09</td>
+<td align="right">25000.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-08-20</td>
+<td align="right">75000.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-08-20</td>
+<td align="right">5000.00</td>
+<td align="left">NA</td>
+<td align="right">2018</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2019-04-15</td>
+<td align="right">4000.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2019-05-20</td>
+<td align="right">5250.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2019-09-16</td>
+<td align="right">250000.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2019-09-20</td>
+<td align="right">75000.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2019-10-21</td>
+<td align="right">48000.00</td>
+<td align="left">NA</td>
+<td align="right">2019</td>
+<td align="right">NA</td>
+<td align="left">GA</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-05-26</td>
+<td align="left">2015-08-25</td>
+<td align="right">6000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2015-09-09</td>
+<td align="right">6400000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Malicious Prosecution</td>
+<td align="left">NA</td>
+<td align="left">2015-06-15</td>
+<td align="left">2015-10-26</td>
+<td align="right">18000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Malicious Prosecution</td>
+<td align="left">NA</td>
+<td align="left">2015-03-16</td>
+<td align="left">2015-12-17</td>
+<td align="right">15000.00</td>
+<td align="left">NA</td>
+<td align="right">2015</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-01-27</td>
+<td align="left">2016-01-29</td>
+<td align="right">20000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-01-27</td>
+<td align="left">2016-01-29</td>
+<td align="right">7000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-02-04</td>
+<td align="left">2016-06-21</td>
+<td align="right">19000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-11-18</td>
+<td align="left">2016-07-20</td>
+<td align="right">16045.55</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-06-24</td>
+<td align="left">2016-08-01</td>
+<td align="right">18500.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-06-05</td>
+<td align="left">2016-08-22</td>
+<td align="right">100000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-02-06</td>
+<td align="left">2016-09-07</td>
+<td align="right">24000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-08-13</td>
+<td align="left">2016-10-12</td>
+<td align="right">100000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-08-20</td>
+<td align="left">2016-10-19</td>
+<td align="right">24500.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-07-07</td>
+<td align="left">2016-10-21</td>
+<td align="right">6500.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Malicious Prosecution</td>
+<td align="left">NA</td>
+<td align="left">2015-12-07</td>
+<td align="left">2016-10-21</td>
+<td align="right">12000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-03-26</td>
+<td align="left">2016-10-26</td>
+<td align="right">60000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-05-26</td>
+<td align="left">2016-11-04</td>
+<td align="right">20000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Malicious Prosecution</td>
+<td align="left">NA</td>
+<td align="left">2015-09-10</td>
+<td align="left">2016-11-10</td>
+<td align="right">12000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">False Imprisonment</td>
+<td align="left">NA</td>
+<td align="left">2015-05-06</td>
+<td align="left">2016-12-19</td>
+<td align="right">45000.00</td>
+<td align="left">NA</td>
+<td align="right">2016</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Malicious Prosecution</td>
+<td align="left">NA</td>
+<td align="left">2015-08-21</td>
+<td align="left">2017-01-03</td>
+<td align="right">40000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-07-30</td>
+<td align="left">2017-01-19</td>
+<td align="right">5000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-12-29</td>
+<td align="left">2017-03-02</td>
+<td align="right">57500.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-10-06</td>
+<td align="left">2017-03-17</td>
+<td align="right">7500.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-01-07</td>
+<td align="left">2017-04-04</td>
+<td align="right">2000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-02-29</td>
+<td align="left">2017-04-13</td>
+<td align="right">15000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-02-23</td>
+<td align="left">2017-04-14</td>
+<td align="right">50000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">False Imprisonment</td>
+<td align="left">NA</td>
+<td align="left">2015-09-03</td>
+<td align="left">2017-04-19</td>
+<td align="right">50000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-12-10</td>
+<td align="left">2017-05-08</td>
+<td align="right">15000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-04-19</td>
+<td align="left">2017-05-09</td>
+<td align="right">10000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">2016-02-03</td>
+<td align="left">2017-05-17</td>
+<td align="right">20000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-12-21</td>
+<td align="left">2017-05-17</td>
+<td align="right">14000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Civil Rights</td>
+<td align="left">NA</td>
+<td align="left">2016-05-31</td>
+<td align="left">2017-05-19</td>
+<td align="right">187100.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2015-04-24</td>
+<td align="left">2017-06-02</td>
+<td align="right">24000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="odd">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-05-04</td>
+<td align="left">2017-06-05</td>
+<td align="right">2500.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+<tr class="even">
+<td align="left">Police/Officer Misconduct</td>
+<td align="left">NA</td>
+<td align="left">2016-07-29</td>
+<td align="left">2017-06-22</td>
+<td align="right">65000.00</td>
+<td align="left">NA</td>
+<td align="right">2017</td>
+<td align="right">NA</td>
+<td align="left">MD</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
