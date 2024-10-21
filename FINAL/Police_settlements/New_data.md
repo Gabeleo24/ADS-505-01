@@ -145,7 +145,7 @@ all_data <- lapply(file_list, function(file) {
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-    ## Rows: 117120 Columns: 21
+    ## Rows: 273280 Columns: 21
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
     ## chr  (11): plaintiff_name, claim_number, summary_allegations, plaintiff_atto...
@@ -335,10 +335,10 @@ all_data <- lapply(file_list, function(file) {
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-    ## Rows: 117120 Columns: 9
+    ## Rows: 273280 Columns: 10
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr  (3): summary_allegations, location, state
+    ## chr  (4): summary_allegations, location, state, city
     ## dbl  (3): amount_awarded, calendar_year, incident_year
     ## dttm (1): closed_date
     ## date (2): incident_date, filed_date
