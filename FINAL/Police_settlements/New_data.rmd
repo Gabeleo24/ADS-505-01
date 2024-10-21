@@ -60,7 +60,7 @@ print(paste("Combined data saved to:", output_csv_path))
 
 ```{r}
 # Only keep the columns that are needed for the analysis
-selected_columns <- c("summary_allegations", "incident_date", "filed_date", "closed_date", "amount_awarded", "location", "calendar_year", "incident_year", "state")
+selected_columns <- c("summary_allegations", "incident_date", "filed_date", "closed_date", "amount_awarded", "location", "calendar_year", "incident_year", "state", "city")
 df_selected <- combined_data %>% select(all_of(selected_columns))
 
 # Save the selected data to a new CSV file

@@ -739,7 +739,7 @@ padding-top: 0px;
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-## Rows: 78080 Columns: 21
+## Rows: 117120 Columns: 21
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (11): plaintiff_name, claim_number, summary_allegations, plaintiff_atto...
@@ -929,6 +929,16 @@ padding-top: 0px;
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 117120 Columns: 9
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (3): summary_allegations, location, state
+## dbl  (3): amount_awarded, calendar_year, incident_year
+## dttm (1): closed_date
+## date (2): incident_date, filed_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ## Rows: 40 Columns: 21
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -969,7 +979,7 @@ padding-top: 0px;
 <span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Combined data saved to:&quot;</span>, output_csv_path))</span></code></pre></div>
 <pre><code>## [1] &quot;Combined data saved to: /Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/combined_data.csv&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Only keep the columns that are needed for the analysis</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>selected_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;summary_allegations&quot;</span>, <span class="st">&quot;incident_date&quot;</span>, <span class="st">&quot;filed_date&quot;</span>, <span class="st">&quot;closed_date&quot;</span>, <span class="st">&quot;amount_awarded&quot;</span>, <span class="st">&quot;location&quot;</span>, <span class="st">&quot;calendar_year&quot;</span>, <span class="st">&quot;incident_year&quot;</span>, <span class="st">&quot;state&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>selected_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;summary_allegations&quot;</span>, <span class="st">&quot;incident_date&quot;</span>, <span class="st">&quot;filed_date&quot;</span>, <span class="st">&quot;closed_date&quot;</span>, <span class="st">&quot;amount_awarded&quot;</span>, <span class="st">&quot;location&quot;</span>, <span class="st">&quot;calendar_year&quot;</span>, <span class="st">&quot;incident_year&quot;</span>, <span class="st">&quot;state&quot;</span>, <span class="st">&quot;city&quot;</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>df_selected <span class="ot">&lt;-</span> combined_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">all_of</span>(selected_columns))</span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co"># Save the selected data to a new CSV file</span></span>

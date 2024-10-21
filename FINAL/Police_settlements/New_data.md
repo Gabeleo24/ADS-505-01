@@ -145,7 +145,7 @@ all_data <- lapply(file_list, function(file) {
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-    ## Rows: 78080 Columns: 21
+    ## Rows: 117120 Columns: 21
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
     ## chr  (11): plaintiff_name, claim_number, summary_allegations, plaintiff_atto...
@@ -335,6 +335,16 @@ all_data <- lapply(file_list, function(file) {
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+    ## Rows: 117120 Columns: 9
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr  (3): summary_allegations, location, state
+    ## dbl  (3): amount_awarded, calendar_year, incident_year
+    ## dttm (1): closed_date
+    ## date (2): incident_date, filed_date
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
     ## Rows: 40 Columns: 21
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -381,7 +391,7 @@ print(paste("Combined data saved to:", output_csv_path))
 
 ``` r
 # Only keep the columns that are needed for the analysis
-selected_columns <- c("summary_allegations", "incident_date", "filed_date", "closed_date", "amount_awarded", "location", "calendar_year", "incident_year", "state")
+selected_columns <- c("summary_allegations", "incident_date", "filed_date", "closed_date", "amount_awarded", "location", "calendar_year", "incident_year", "state", "city")
 df_selected <- combined_data %>% select(all_of(selected_columns))
 
 # Save the selected data to a new CSV file
