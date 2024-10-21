@@ -1,0 +1,146 @@
+---
+title: "Untitled"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# Disable scientific notation
+options(scipen = 999)
+
+# Avoid conflicts
+summarize <- dplyr::summarize
+rename <- dplyr::rename
+count <- dplyr::count
+
+# Define the base path to your CSV files
+df <- "/Users/gabrielmancillas/Desktop/ADS 505-01/FINAL/Police_settlements/Locations/selected_data.csv"
+```
+
+```{r}
+#load the library
+library(readr)
+
+# Load the data from the CSV file
+data <- read_csv(df)
+
+# Display the first few rows of the data to verify and column names
+head(data)
+
+```
+
+```{r}
+
+# Install dplyr if not already installed
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+
+# Load dplyr for piping functionality
+library(dplyr)
+```
+
+```{r}  
+library(dplyr)
+
+# Step 1: Clean the summary_allegations column to remove unnecessary text before applying keyword replacement
+data <- data %>%
+  mutate(summary_allegations = gsub(".*Summary Allegations: ", "", summary_allegations))  # Remove department info
+
+replace_with_keyword <- function(text) {
+  # Define a named vector of patterns and their corresponding replacements
+  patterns <- c(
+    "civil rights|equity|constituional claim|constitutional violations|CIVIL RIGHTS CLAIMS|Civil Rights Violation" = "Civil Rights",
+    "wrongful arrest|prisoner complaint common law|reversed conviction|Unjust Imprisonment Act claim" = "Wrongful Arrest",
+    "Violation of constitutional rights:" = "Violation of Constitutional Rights",
+    "Uncoded" = "Uncoded",
+    "excessive force|brutality|Personal Injury: Exessive force|T.R.O." = "Excessive Force",
+    "search & seizure|unlawful search|illegal search|seizure" = "Search & Seizure",
+    "false imprisonment|False Arrest/Detention/Imprisonment|false arrest" = "False Imprisonment",
+    "assault and battery|Assault/Slander/Liable|property damage|Excessive Force (Police)|Law Enforcement Related Injury - Assault & Battery/Excessive Force" = "Assault & Battery",
+    "malicious prosecution" = "Malicious Prosecution",
+    "negligence|negligent|failure to provide medical care|fail to render medcare|failure to prevent attempts of suicide" = "Negligence",
+    "Disability/Medical Discrimination" = "Disability/Medical Discrimination",
+    "police shooting|Wrongful Death" = "Police Shooting",
+    "unlawful detention" = "Unlawful Detention",
+    "police misconduct|officer misconduct|police activity|Police False Arrest-" = "Police/Officer Misconduct",
+    "motor Vehicle Incident|Struck by Police Cruiser|car accident|Breathalyzer|auto" = "Motor Vehicle Incident",
+    "failure to enforce" = "Failure to Enforce",
+    "errors & omissions" = "Errors & Omissions",
+    "miscellaneous|trash container|whistle blower action" = "Miscellaneous",
+    "improper auto procedure|improper procedure|impropr procedure" = "Improper Auto Procedure",
+    "cruel" = "Wrongful Arrest",
+    "due process" = "Other",
+    "DUI stop" = "Civil Rights",
+    "litigation|presuit|Subrogation claim" = "Litigation",
+    "sexual harrasement|sexual assault" = "Sexual Harassment",
+    "personal injury|PEACE OFFICER/POLICE ACTION (PI)" = "Personal Injury",
+    "declaratory judgment" = "Declaratory Judgment",
+    "Employment Complaint-Common Law|(non-labor/employment)" = "Employment Complaint",
+    "Violation of constitutional rights:|Amendments" = "Violation of constitutional rights",
+    "Discrimination - sex" = "Race Discrimination"
+  )
+  
+  # Iterate through the patterns and apply the replacements
+  for (pattern in names(patterns)) {
+    if (grepl(pattern, text, ignore.case = TRUE)) {
+      return(patterns[[pattern]])
+    }
+  }
+  
+  # Handle NA values
+  if (is.na(text)) {
+    return("Not Reported")
+  }
+  
+  # Return the original text if no match is found
+  return(text)
+}
+# Step 3: Apply the function to the cleaned summary_allegations column
+data <- data %>%
+  mutate(summary_allegations = sapply(summary_allegations, replace_with_keyword))
+
+# Step 4: Save the updated dataset as a new CSV file
+write.csv(data, "updated_police_settlements.csv", row.names = FALSE)
+
+# Optional: View the first few rows to inspect the saved file
+head(data, 100) %>% 
+  knitr::kable()
+
+```
+
+```{r}
+# Filter out rows where summary_allegations have not been converted to the standardized list
+standardized_list <- c("Civil Rights", "Wrongful Arrest", "Violation of Constitutional Rights", "Uncoded", 
+                       "Excessive Force", "Search & Seizure", "False Imprisonment", "Assault & Battery", 
+                       "Malicious Prosecution", "Negligence", "Disability/Medical Discrimination", "Police Shooting", 
+                       "Unlawful Detention", "Police/Officer Misconduct", "Motor Vehicle Incident", "Failure to Enforce", 
+                       "Errors & Omissions", "Miscellaneous", "Improper Auto Procedure", "Other", 
+                       "Litigation", "Sexual Harassment", "Personal Injury", "Declaratory Judgment", 
+                       "Employment Complaint", "Race Discrimination", "Not Reported", "Wrongful Death", 
+                       "Improper Procedure", "Cruel and Unusual Punishment")
+
+data <- data %>%
+    filter(summary_allegations %in% standardized_list)
+
+# Optional: View the first few rows to inspect the filtered data
+head(data, 1000) %>% 
+    knitr::kable()
+
+# Count the number of unique summary_allegations
+summary_counts <- data %>%
+  count(summary_allegations)
+
+# Display the summary counts
+summary_counts %>% 
+  knitr::kable()
+```
+
+```{r}
+#show the data into a new csv file 
+write.csv(data, "updated_police_settlements.csv", row.names = FALSE)
+```
